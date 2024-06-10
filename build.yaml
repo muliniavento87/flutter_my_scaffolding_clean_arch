@@ -1,0 +1,11 @@
+targets:
+  $default:
+    builders:
+      json_serializable|freezed|retrofit_generator:
+        generate_for:
+          - "{{}}.dart"
+    sources:
+      - "lib/**"
+      - "test/**"
+      - "data_module/**"
+      - "domain_module/**"
