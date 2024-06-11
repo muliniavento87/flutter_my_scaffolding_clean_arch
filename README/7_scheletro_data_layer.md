@@ -2,6 +2,34 @@
 
 # Scheletro Data layer
 
+# MAIN
+
+## data_module/data_module.dart
+```
+library data_module;
+
+export 'flavors.dart';
+export 'constants/shared_preferences_key.dart';
+// ABSTRACTIONS
+export 'abstractions/app_config_datasource.dart';
+export 'abstractions/shared_pref_datasource.dart';
+export 'abstractions/api_rest_datasource.dart';
+// DATASOURCES
+export 'datasources/app_config_datasource_impl.dart';
+export 'datasources/shared_pref_impl.dart';
+export 'datasources/api_rest_datasource_impl.dart';
+// REPOSITORIES
+export 'di/di_repository.dart';
+export 'di/providers/di_app_config_provider.dart';
+export 'di/providers/di_shared_pref_provider.dart';
+export 'di/providers/di_api_rest_provider.dart';
+export 'repositories/app_config_repository_impl.dart';
+// MODELS
+export 'models/app_config_state.dart';
+// OVERRIDES
+export 'di/di_override_providers.dart';
+```
+
 # ENV
 
 ## data_module/lib/env/config.dart
@@ -300,7 +328,6 @@ final apiRestRepositoryProvider = Provider<ApiRestRepository>((ref) {
 ## data_module/lib/di/di_override_providers.dart
 ```
 import 'package:data_module/data_module.dart';
-import 'package:data_module/di/providers/di_api_rest_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 Override overrideShopApiDataSourceProvider(ApiRestDataSource override) {

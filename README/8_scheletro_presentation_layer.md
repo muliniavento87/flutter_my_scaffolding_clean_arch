@@ -3,7 +3,8 @@
 # Scheletro Presentation Layer
 
 # Main (entry points)
-- lib/main_dev.dart
+
+## lib/main_dev.dart
 ```
 import 'package:data_module/data_module.dart';
 import 'app/main.dart';
@@ -13,7 +14,8 @@ void main() async {
   appMain(overrides: []);
 }
 ```
-- lib/main_mock.dart
+
+## lib/main_mock.dart
 ```
 import 'package:data_module/data_module.dart';
 import 'app/mock/mock_api_rest_datasource_impl.dart';
@@ -22,13 +24,13 @@ import 'app/main.dart';
 void main() async {
   F.appFlavor = Flavor.mock;
   appMain(overrides: [
-    overrideInternalApiExampleDataSourceProvider(MockApiRestDataSourceImpl()) // datasource override example
+    overrideShopApiDataSourceProvider(MockApiRestDataSourceImpl()) // datasource override example
   ]);
 }
 ```
 
 # App
-- lib/app/main.dart (il vero main dell'app)
+## lib/app/main.dart (il vero main dell'app)
 ```
 import 'package:data_module/data_module.dart';
 import 'package:flutter/material.dart';
@@ -71,4 +73,28 @@ final _router = GoRouter(
   ],
 );
 ```
-- lib/app/my_app/ ()
+
+## lib/app/mock/mock_api_rest_datasource_impl.dart
+```
+import 'package:data_module/data_module.dart';
+
+class MockApiRestDataSourceImpl implements ApiRestDataSource {
+  MockApiRestDataSourceImpl();
+
+  @override
+  Future<String> getData() {
+    return Future.delayed(const Duration(seconds: 2), () => "mocked result"); // Simulate network delay
+  }
+}
+```
+
+## lib/app/pages/*
+Pagine della app:
+- ognuna deve avere al suo interno il "pagePath"
+```
+static String pagePath = "/nuovaPagina";
+```
+- ce ne deve essere almeno una con pagePath = "/" (per avere un entry point per GoRouter)
+```
+static String pagePath = "/";
+```

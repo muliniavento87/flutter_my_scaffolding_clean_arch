@@ -18,7 +18,7 @@ abstract class AppConfigRepository {
 }
 ```
 
-## domain_module/lib/repo/api_test_repository.dart
+## domain_module/lib/repo/api_rest_repository.dart
 Modelli astratti dei repository del data_module (config app, es. tema)
 ```
 abstract class ApiRestRepository {
