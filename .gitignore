@@ -49,7 +49,7 @@ gen-external-apklibs
 .dart_tool/
 .packages
 # If you're building an application, you may want to check-in your pubspec.lock
-pubspec.lock
+#pubspec.lock
 
 # Directory created by dartdoc
 # If you don't generate documentation locally you can remove this line.
@@ -415,10 +415,10 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+#env/
 .venv
-env/
 venv/
-ENV/
+#ENV/
 env.bak/
 venv.bak/
 
